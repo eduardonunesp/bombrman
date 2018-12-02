@@ -4,10 +4,12 @@ using UnityEngine.Tilemaps;
 public class Player : MonoBehaviour
 {
   // Directions which player is moving
-  private enum MoveDirection
+  public enum MoveDirection
   {
     UP, DOWN, LEFT, RIGHT
   };
+
+  public MoveDirection initialPosition = MoveDirection.RIGHT;
 
   // Normal speed of the player
   public float speed = 200f;
@@ -36,6 +38,9 @@ public class Player : MonoBehaviour
     // Caching components
     _rigidbody2D = GetComponent<Rigidbody2D>();
     _animator = GetComponent<Animator>();
+
+    // Setting player initial position
+    _moveDirection = initialPosition;
   }
 
   // Update is called once per frame

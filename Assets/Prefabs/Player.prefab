@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1599360097256714}
   m_IsPrefabAsset: 1
+--- !u!1 &1310784476664216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4229095773780812}
+  m_Layer: 0
+  m_Name: BombPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1599360097256714
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,10 +53,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1599360097256714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.22, y: 0.33037144, z: 0}
+  m_LocalPosition: {x: 0.2442063, y: 0.30056292, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4229095773780812}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4229095773780812
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310784476664216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4213686015623448}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50149363347723136
@@ -108,8 +137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb95a75e17ba4ce3ac60ad28b9b5ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPosition: 3
   speed: 200
   bomb: {fileID: 1959565292241436, guid: 3615b7ecc2df54a1e89cac6f2f84b11d, type: 2}
+  tileMap: {fileID: 0}
+  bombPoint: {fileID: 1310784476664216}
 --- !u!212 &212656766369238132
 SpriteRenderer:
   m_ObjectHideFlags: 1
