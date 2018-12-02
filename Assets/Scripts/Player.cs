@@ -99,10 +99,9 @@ public class Player : MonoBehaviour
   {
     if (Input.GetButtonUp("Fire1"))
     {
-      var pos = tileMap.WorldToCell(bombPoint.transform.position);
-      pos.y += 1;
-      Instantiate(bomb, pos, Quaternion.identity);
-      Debug.Log("POS: " + pos);
+      Vector3Int cell = tileMap.WorldToCell(bombPoint.transform.position);
+      Vector3 cellCenterPos = tileMap.GetCellCenterWorld(cell);
+      Instantiate(bomb, cellCenterPos, Quaternion.identity);
     }
   }
 
