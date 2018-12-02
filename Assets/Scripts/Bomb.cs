@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
+  // Explosion center instantiate after destroy this
   public GameObject explosionCenter;
 
-  // Use this for initialization
-  void Start()
-  {
-    StartCoroutine(Countdown());
-  }
+  // Number of seconds til explode!
+  public float bombTimeout = 3f;
 
-  private IEnumerator Countdown()
+  void Update()
   {
-    int counter = 3;
-    while (counter > 0)
-    {
-      yield return new WaitForSeconds(1);
-      counter--;
-    }
-    Explode();
+    // Decrease timeout on each frame based on delta time
+    bombTimeout -= Time.deltaTime;
+
+    // Timeout reached going to explode
+    if (bombTimeout <= 0)
+      Explode();
   }
 
   void Explode()
   {
+    // Instantiate the explosion center on this bomb position
     Instantiate(explosionCenter, transform.position, Quaternion.identity);
+
+    // Destroy this object now
     Destroy(gameObject);
   }
 }
