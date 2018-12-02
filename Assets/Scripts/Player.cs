@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class Player : MonoBehaviour
   // Normal speed of the player
   public float speed = 200f;
 
+  // Max bomb
+  public int bombCounter = 1;
+
   // Bomb instantiated
   public GameObject bomb;
 
@@ -26,11 +31,15 @@ public class Player : MonoBehaviour
   // Cached component
   private Rigidbody2D _rigidbody2D;
   private Animator _animator;
+  private Collider2D _collider2D;
 
   // Player move helpers
   private Vector3 _playerMove;
   private Vector2 _playerSpeed;
   private MoveDirection _moveDirection;
+
+  // Players bomb list
+  private List<Bomb> _playerBombs;
 
   // Use this for initialization
   void Start()
@@ -38,9 +47,13 @@ public class Player : MonoBehaviour
     // Caching components
     _rigidbody2D = GetComponent<Rigidbody2D>();
     _animator = GetComponent<Animator>();
+    _collider2D = GetComponent<Collider2D>();
 
     // Setting player initial position
     _moveDirection = initialPosition;
+
+    // Setting bombs list
+    _playerBombs = new List<Bomb>();
   }
 
   // Update is called once per frame
@@ -125,6 +138,8 @@ public class Player : MonoBehaviour
 
   void updateButtonActions()
   {
+    if (_playerBombs.Count >= bombCounter) return;
+
     // Button pressed so drop a bomb
     if (Input.GetButtonUp("Fire1"))
     {
@@ -133,9 +148,48 @@ public class Player : MonoBehaviour
       Vector3Int cell = tileMap.WorldToCell(bombPoint.transform.position);
       Vector3 cellCenterPos = tileMap.GetCellCenterWorld(cell);
 
+      if (!BoardManager.instance.canPutBombOn(cellCenterPos))
+      {
+        Debug.Log("Can't put a bomb over another");
+        return;
+      };
+
       // Nice, let's instantiate the death bringer
-      Instantiate(bomb, cellCenterPos, Quaternion.identity);
+      GameObject gb = (GameObject)Instantiate(bomb, cellCenterPos, Quaternion.identity);
+
+      // Get the bomb instantiated
+      Bomb newBomb = gb.GetComponent<Bomb>();
+
+      // Set the owner
+      newBomb.setPlayerOwner(this);
+
+      // Adding to player bomb's list
+      _playerBombs.Add(newBomb);
+
+      // Adding to board manager
+      BoardManager.instance.bombs.Add(newBomb);
+
+      // Ignore collision while player is above
+      Collider2D bombCollider = (Collider2D)newBomb.GetComponent<CircleCollider2D>();
+      Physics2D.IgnoreCollision(_collider2D, bombCollider);
     }
+  }
+
+  public void removeBombFromList(Bomb bomb)
+  {
+    // Check if the bomb belongs to this player
+    if (_playerBombs.Contains(bomb))
+    {
+      // Remove bomb from the list
+      // The bomb already gone
+      _playerBombs.Remove(bomb);
+      BoardManager.instance.bombs.Remove(bomb);
+    }
+  }
+
+  public bool isOnPlayerList(Bomb bomb)
+  {
+    return _playerBombs.Contains(bomb);
   }
 
   void FixedUpdate()

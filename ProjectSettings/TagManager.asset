@@ -13,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Foreground
+  - Item
+  - Bomb
+  - Enemy
+  - Player
   - 
   - 
   - 
