@@ -18,8 +18,8 @@ TagManager:
   - Bomb
   - Enemy
   - Player
-  - BombExplosion
-  - 
+  - CenterExplosion
+  - CollateralExplosion
   - 
   - 
   - 
