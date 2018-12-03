@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 95003347644287632}
   - component: {fileID: 61108271141270746}
   - component: {fileID: 114220506230569768}
-  m_Layer: 13
+  - component: {fileID: 114192614219947064}
+  m_Layer: 0
   m_Name: ExplodeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +53,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -86,6 +87,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114192614219947064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1748744893221558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda31a1fdb24a4204aa9069331930886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114220506230569768
 MonoBehaviour:
   m_ObjectHideFlags: 1

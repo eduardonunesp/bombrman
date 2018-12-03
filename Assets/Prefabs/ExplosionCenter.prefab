@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 114880101058709764}
   - component: {fileID: 114504792115433292}
   - component: {fileID: 61733710711899238}
-  m_Layer: 13
+  - component: {fileID: 114874830044759712}
+  m_Layer: 0
   m_Name: ExplosionCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +99,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a4c229420074899ad22e27b0eaa6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114874830044759712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1166464257227308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda31a1fdb24a4204aa9069331930886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114880101058709764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,7 +129,6 @@ MonoBehaviour:
     type: 2}
   explosionRight: {fileID: 1546106000652162, guid: 4918d4a8c54914cd78c8df9b8abfc269,
     type: 2}
-  raycastDistance: 1
 --- !u!212 &212410861204270788
 SpriteRenderer:
   m_ObjectHideFlags: 1

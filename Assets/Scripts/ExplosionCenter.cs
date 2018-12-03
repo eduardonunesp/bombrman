@@ -27,8 +27,8 @@ public class ExplosionCenter : MonoBehaviour
 
   void ExplodeUp()
   {
-    Vector2 upPosition = new Vector2(transform.position.x, transform.position.y + 1);
-    RaycastHit2D testUp = Physics2D.Raycast(upPosition, Vector2.up, raycastDistance, finalLayer);
+    Vector2 upPosition = new Vector2(transform.position.x, transform.position.y + 1f);
+    RaycastHit2D testUp = Physics2D.Raycast(transform.position, Vector2.up, raycastDistance, finalLayer);
 
     if (testUp.collider == null)
     {
@@ -43,7 +43,7 @@ public class ExplosionCenter : MonoBehaviour
   void ExplodeLeft()
   {
     Vector2 leftPosition = new Vector2(transform.position.x - 1, transform.position.y);
-    RaycastHit2D testLeft = Physics2D.Raycast(leftPosition, Vector2.left, raycastDistance, finalLayer);
+    RaycastHit2D testLeft = Physics2D.Raycast(transform.position, Vector2.left, raycastDistance, finalLayer);
 
     if (testLeft.collider == null)
     {
@@ -58,7 +58,7 @@ public class ExplosionCenter : MonoBehaviour
   void ExplodeRight()
   {
     Vector2 rightPosition = new Vector2(transform.position.x + 1, transform.position.y);
-    RaycastHit2D testRight = Physics2D.Raycast(rightPosition, Vector2.right, raycastDistance, finalLayer);
+    RaycastHit2D testRight = Physics2D.Raycast(transform.position, Vector2.right, raycastDistance, finalLayer);
 
     if (testRight.collider == null)
     {
@@ -73,7 +73,7 @@ public class ExplosionCenter : MonoBehaviour
   void ExplodeDown()
   {
     Vector2 downPosition = new Vector2(transform.position.x, transform.position.y - 1);
-    RaycastHit2D testDown = Physics2D.Raycast(downPosition, Vector2.down, raycastDistance, finalLayer);
+    RaycastHit2D testDown = Physics2D.Raycast(transform.position, Vector2.down, raycastDistance, finalLayer);
 
     if (testDown.collider == null)
     {
