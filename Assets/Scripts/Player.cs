@@ -160,6 +160,10 @@ public class Player : MonoBehaviour
       // Get the bomb instantiated
       Bomb newBomb = gb.GetComponent<Bomb>();
 
+      // Ignore collision while player is above
+      Collider2D bombCollider = (Collider2D)newBomb.GetComponent<Collider2D>();
+      Physics2D.IgnoreCollision(_collider2D, bombCollider);
+
       // Set the owner
       newBomb.setPlayerOwner(this);
 
@@ -168,10 +172,6 @@ public class Player : MonoBehaviour
 
       // Adding to board manager
       BoardManager.instance.bombs.Add(newBomb);
-
-      // Ignore collision while player is above
-      Collider2D bombCollider = (Collider2D)newBomb.GetComponent<CircleCollider2D>();
-      Physics2D.IgnoreCollision(_collider2D, bombCollider);
     }
   }
 
@@ -196,5 +196,10 @@ public class Player : MonoBehaviour
   {
     // Calculate the physics for movement
     _rigidbody2D.velocity = _playerSpeed;
+  }
+
+  public void Kill()
+  {
+    Destroy(gameObject);
   }
 }

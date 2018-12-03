@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 95543295117568544}
   - component: {fileID: 114880101058709764}
   - component: {fileID: 114504792115433292}
-  - component: {fileID: 114146814187962616}
-  m_Layer: 0
+  - component: {fileID: 61733710711899238}
+  m_Layer: 13
   m_Name: ExplosionCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,6 +44,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61733710711899238
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1166464257227308}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!95 &95543295117568544
 Animator:
   serializedVersion: 3
@@ -62,17 +87,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114146814187962616
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1166464257227308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a4c229420074899ad22e27b0eaa6ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114504792115433292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,6 +109,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124aab54183c34d30ab41da7bc1cb9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionUp: {fileID: 1299046034058524, guid: 5fc5a21ca8b604c67bf28d4b55cd7707,
+    type: 2}
+  explosionLeft: {fileID: 1748744893221558, guid: 7e665a7bf49794d44b687229d38b9b3a,
+    type: 2}
+  explosionDown: {fileID: 1867475502459100, guid: 3c1c56e18abad41e382cef49272b7dff,
+    type: 2}
+  explosionRight: {fileID: 1546106000652162, guid: 4918d4a8c54914cd78c8df9b8abfc269,
+    type: 2}
+  raycastDistance: 1
 --- !u!212 &212410861204270788
 SpriteRenderer:
   m_ObjectHideFlags: 1
